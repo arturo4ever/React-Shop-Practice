@@ -1,0 +1,20 @@
+{
+  "name": "react-shop",
+  "version": "1.0.0",
+  "description": "react shop e commerce",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "node",
+    "node",
+    "js",
+    "javascript",
+    "frontend",
+    "ecommerce"
+  ],
+  "author": "arturo4ever <darturosanchezg@gmail.com>",
+  "license": "MIT"
+}
