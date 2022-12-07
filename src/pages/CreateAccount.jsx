@@ -1,5 +1,5 @@
-import React from 'react';
-import '../styles/CreateAccount.scss';
+import React from "react";
+import "../styles/CreateAccount.scss";
 
 const CreateAccount = () => {
   return (
@@ -49,6 +49,6 @@ const CreateAccount = () => {
       </div>
     </div>
   );
-}
+};
 
-export default CreateAccount
+export default CreateAccount;
