@@ -3,8 +3,8 @@ import ProductItem from '../components/ProductItem';
 
 const ProductList = () => {
   return (
-    <section class="main-container">
-      <div class="cards-container">
+    <section className="main-container">
+      <div className="cards-container">
         <ProductItem />
       </div>
     </section>
