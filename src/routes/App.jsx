@@ -12,8 +12,8 @@ import "@styles/global.css";
 import Orders from '@pages/Orders';
 import Checkout from '@pages/Checkout';
 import SendEmail from "@pages/SendEmail";
-import AppContext from "../context/AppContext";
-import useInitialState from "../hooks/useInitialState";
+import AppContext from "@context/AppContext";
+import useInitialState from "@hooks/useInitialState";
 
 const App = () => {
   const initialState = useInitialState();

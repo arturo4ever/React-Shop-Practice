@@ -17,7 +17,10 @@ module.exports = {
       '@icons': path.resolve(__dirname, 'src/assets/icons'),
       '@logos': path.resolve(__dirname, 'src/assets/logos'),
       '@pages': path.resolve(__dirname, 'src/pages'),
-      '@styles': path.resolve(__dirname, 'src/styles')
+      '@styles': path.resolve(__dirname, 'src/styles'),
+      '@context': path.resolve(__dirname, 'src/context'),
+      '@hooks': path.resolve(__dirname, 'src/hooks'),
+      '@routes': path.resolve(__dirname, 'src/routes'),
     },
     extensions: [".js", ".jsx"],
   },
