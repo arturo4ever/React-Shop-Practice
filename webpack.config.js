@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const Webpack = require('webpack');
 
 module.exports = {
   entry: "./src/index.js",
@@ -22,7 +23,7 @@ module.exports = {
       '@hooks': path.resolve(__dirname, 'src/hooks'),
       '@routes': path.resolve(__dirname, 'src/routes'),
     },
-    extensions: [".js", ".jsx"],
+    extensions: ["*", ".js", ".jsx"],
   },
   module: {
     rules: [
@@ -46,8 +47,12 @@ module.exports = {
         use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
-        test: /\.(png|svg)$/,
-        type: 'asset',
+        test: /\.png$/,
+        use: ["file-loader", "url-loader"]
+      },
+      {
+        test: /\.svg$/,
+        use: ["svg-url-loader"]
       }
     ],
   },
@@ -59,11 +64,14 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "[name].css",
     }),
+    new Webpack.HotModuleReplacementPlugin(),
   ],
   devServer: {
     static: path.join(__dirname, "dist"),
+    open: true,
     compress: true,
     port: 3008,
     historyApiFallback: true,
+    hot: true,
   },
 };
