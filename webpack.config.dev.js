@@ -2,17 +2,17 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "[name].[contenhash].js",
+    filename: "[name].[contenthash].js",
     publicPath: "/",
   },
+  mode: "development",
+  devtool: 'source-map',
   resolve: {
     alias: {
       '@components': path.resolve(__dirname, 'src/components'),
@@ -67,25 +67,25 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			filename: '[name].[contenthash].css'
 		}),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, "src", "assets/icons"),
-          to: "assets/icons"
-        },
-        {
-          from: path.resolve(__dirname, "src", "assets/logos"),
-          to: "assets/logos"
-        }
-      ]
-    }),
-    new CleanWebpackPlugin(),
-	],
-	optimization: {
-		minimize: true,
-    minimizer: [
-      new CssMinimizerPlugin(),
-      new TerserPlugin()
-    ]
-	},
+    	new CopyWebpackPlugin({
+      	patterns: [
+        	{
+          		from: path.resolve(__dirname, "src", "assets/icons"),
+          		to: "assets/icons"
+        	},
+        	{
+          		from: path.resolve(__dirname, "src", "assets/logos"),
+          		to: "assets/logos"
+        	}
+		]
+		}),
+		new BundleAnalyzerPlugin(),
+    ],
+	devServer: {
+		static: path.join(__dirname, 'dist'),
+        compress: true,
+        historyApiFallback: true,
+        port: 3006,
+        open: true,
+	}
 };

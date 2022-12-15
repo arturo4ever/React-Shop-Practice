@@ -14,7 +14,6 @@ import Checkout from '@pages/Checkout';
 import SendEmail from "@pages/SendEmail";
 import AppContext from "@context/AppContext";
 import useInitialState from "@hooks/useInitialState";
-import { hot } from "react-hot-loader";
 
 const App = () => {
   const initialState = useInitialState();
@@ -40,4 +39,4 @@ const App = () => {
   );
 };
 
-export default hot(module)(App);
+export default App;
